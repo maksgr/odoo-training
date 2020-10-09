@@ -1,16 +1,14 @@
 # -*- coding: utf-8 -*-
 {
-    'name':        "OpenAcademy",
-
+    'name': "Technical Training",
     'summary':
-                   """
-                   Openacademy
-                   """,
-
-    'description': """
-        Manage course, classes, teachers, students, ...
+    """
+    Technical Training
     """,
-
+    'description':
+    """
+    Manage course, classes, teachers, students, ...
+    """,
     'author':      "Odoo",
     'website':     "http://www.odoo.com",
 
