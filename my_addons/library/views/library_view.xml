@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem
+            id="menu_open_library_root"
+            name="Library"
+            sequence="1005"/>
+
+
+
+
+<!--        <menuitem-->
+<!--            id="menu_rentals_main"-->
+<!--            name="Rentals"-->
+<!--            parent="menu_open_library_root"-->
+<!--            groups="base.group_user"-->
+<!--            sequence="10"/>-->
+
+<!--            <menuitem-->
+<!--                id="menu_view_rentals"-->
+<!--                name="Rentals"-->
+<!--                action="open_view_course_list"-->
+<!--                parent="menu_rentals_main"-->
+<!--                sequence="0"/>-->
+
+<!--        <menuitem-->
+<!--            id="menu_publisher_main"-->
+<!--            name="Publisher"-->
+<!--            parent="menu_open_library_root"-->
+<!--            groups="base.group_user"-->
+<!--            sequence="15"/>-->
+
+<!--            <menuitem-->
+<!--                id="menu_view_publisher"-->
+<!--                name="Publisher"-->
+<!--                action="open_view_publisher_list"-->
+<!--                parent="menu_publisher_main"-->
+<!--                sequence="0"/>-->
+
+    </data>
+</odoo>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_library_partner_tree" model="ir.ui.view">
+            <field name="name">library.partner.tree</field>
+            <field name="model">library.partner</field>
+            <field name="arch" type="xml">
+                <tree string="Partner">
+                    <field name="name"/>
+                    <field name="email"/>
+                    <field name="address"/>
+                    <field name="partner_type"/>
+                    <field name="rental_ids"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_library_partner_form" model="ir.ui.view">
+            <field name="name">library.partner.form</field>
+            <field name="model">library.partner</field>
+            <field name="arch" type="xml">
+                <form string="Partner">
+                    <sheet>
+                        <group col="4">
+                            <field name="name"/>
+                            <field name="email"/>
+                            <field name="address"/>
+                            <field name="partner_type"/>
+                            <field name="rental_ids" attrs="{'invisible': [('partner_type', '=', 'author')]}"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_library_partner_filter" model="ir.ui.view">
+            <field name="name">library.partner.search</field>
+            <field name="model">library.partner</field>
+            <field name="arch" type="xml">
+                <search string="session">
+                    <field name="partner_type"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Instructor" name="instructor" domain="[]" context="{'group_by': 'name'}"/>
+                        <filter string="Status" name="status" domain="[]" context="{'group_by': 'partner_type'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="open_view_library_partner_list" model="ir.actions.act_window">
+            <field name="name">Partner</field>
+            <field name="res_model">library.partner</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="view_id" eval="False"/>
+            <field name="search_view_id" ref="view_library_partner_filter"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Add a new partner
+                </p>
+            </field>
+        </record>
+
+        <menuitem
+            id="menu_partners_main"
+            name="Partner"
+            parent="menu_open_library_root"
+            groups="base.group_user"
+            sequence="5"/>
+
+            <menuitem
+                id="menu_view_partners"
+                name="Partner"
+                action="open_view_library_partner_list"
+                parent="menu_partners_main"
+                sequence="0"/>
+
+    </data>
+</odoo>

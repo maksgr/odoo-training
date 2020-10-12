@@ -2,10 +2,10 @@
 
 from odoo import fields, models
 
-PARTNER_TYPE = (
+PARTNER_TYPE = [
     ('customer', 'Customer'),
     ('author', 'Author')
-)
+]
 
 
 class Partner(models.Model):
@@ -16,5 +16,5 @@ class Partner(models.Model):
     name = fields.Char(string='Name')
     email = fields.Char(string='Email')
     address = fields.Text(string='Address')
-    partner_type = fields.Selection(PARTNER_TYPE, string='Partner Type')
+    partner_type = fields.Selection(selection=PARTNER_TYPE, string='Partner Type')
     rental_ids = fields.One2many('library.rental', 'customer_id', string='Rental')
