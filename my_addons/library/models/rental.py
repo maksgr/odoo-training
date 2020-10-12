@@ -9,8 +9,9 @@ class Rental(models.Model):
     _description = 'Library Rental'
 
     name = fields.Char(string='Name')
+    copy_id = fields.Many2one('library.copy', string='Copy')
     customer_id = fields.Many2one('library.partner', 'Customer')
-    book_id = fields.Many2one('library.book', 'Book')
+    book_id = fields.Many2one(related='copy_id.book_id', readonly=True)
     rental_date = fields.Date(string='Rental Date')
     return_date = fields.Date(string='Return Date')
     planned_return_date = fields.Date(string='Planned Return Date')

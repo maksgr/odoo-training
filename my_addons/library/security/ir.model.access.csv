@@ -3,3 +3,4 @@ access_library_book,library.book,model_library_book,base.group_user,1,1,1,1
 access_library_partner,library.partner,model_library_partner,base.group_user,1,1,1,1
 access_library_publisher,library.publisher,model_library_publisher,base.group_user,1,1,1,1
 access_library_rental,library.rental,model_library_rental,base.group_user,1,1,1,1
+access_library_copy,library.copy,model_library_copy,base.group_user,1,1,1,1

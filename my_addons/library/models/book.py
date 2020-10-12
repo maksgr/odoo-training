@@ -12,5 +12,6 @@ class Book(models.Model):
     author_ids = fields.Many2many('library.partner', 'author_rel', 'book_id', string='Partner')
     edition_date = fields.Date(string='Edition Date')
     isbn = fields.Char(string='Isbn')
-    publisher_id = fields.Many2one('library.publisher')
+    publisher_id = fields.Many2one('library.publisher', string='Publisher')
     rental_ids = fields.One2many('library.rental', 'book_id', 'Rental')
+    copy_ids = fields.One2many('library.copy', 'book_id', 'Copy')

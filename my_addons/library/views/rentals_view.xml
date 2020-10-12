@@ -10,6 +10,7 @@
                     <field name="name"/>
                     <field name="customer_id"/>
                     <field name="book_id"/>
+                    <field name="copy_id"/>
                     <field name="rental_date"/>
                     <field name="return_date"/>
                     <field name="planned_return_date"/>
@@ -32,6 +33,7 @@
                             <field name="name"/>
                             <field name="customer_id" domain="[('partner_type', '=', 'customer')]"/>
                             <field name="book_id"/>
+                            <field name="copy_id"/>
                             <field name="rental_date"/>
                             <field name="return_date"/>
                             <field name="customer_address"/>

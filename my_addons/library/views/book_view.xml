@@ -30,6 +30,7 @@
                             <field name="isbn"/>
                             <field name="publisher_id"/>
                             <field name="rental_ids"/>
+<!--                            <field name="copy_ids"/>-->
                         </group>
                     </sheet>
                 </form>
