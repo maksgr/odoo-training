@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem
+            id="menu_open_academy_root"
+            name="Open Academy"
+            web_icon="openacademy,static/description/icon.png"
+            sequence="1000"/>
+
+        <menuitem
+            id="menu_course_main"
+            name="Course"
+            parent="menu_open_academy_root"
+            groups="base.group_user"
+            sequence="0"/>
+
+            <menuitem
+                id="menu_view_course"
+                name="Course"
+                action="open_view_course_list"
+                parent="menu_course_main"
+                sequence="0"/>
+
+            <menuitem
+                id="menu_view_session"
+                name="Session"
+                action="open_view_session_list"
+                parent="menu_course_main"
+                sequence="5"/>
+
+    </data>
+</odoo>
