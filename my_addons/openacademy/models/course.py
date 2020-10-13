@@ -17,6 +17,6 @@ class Course(models.Model):
 
     name = fields.Char(string='Name', required=True)
     description = fields.Text(string='Description')
-    responsible_id = fields.Many2one('partner', string="Responsible")
-    session_ids = fields.One2many('partner', 'course_id', string="Session")
+    responsible_id = fields.Many2one('res.partner', string="Responsible")
+    session_ids = fields.One2many('res.partner', 'course_id', string="Session")
     level = fields.Selection(LEVEL, string='Level')

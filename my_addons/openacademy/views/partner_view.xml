@@ -1,4 +1,29 @@
 <?xml version="1.0"?>
 <odoo>
 
+    <record id="view_partner_address_form_custom" model="ir.ui.view">
+        <field name="name">res.partner.form.address.custom</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='vat']" position="after">
+                <field name="instructor"/>
+            </xpath>
+            <xpath expr="//field[@name='category_id']" position="after">
+                <field name="session_ids" widget="many2many"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_partner_tree_custom" model="ir.ui.view">
+        <field name="name">res.partner.tree.custom</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='vat']" position="after">
+                <field name="instructor"/>
+            </xpath>
+        </field>
+    </record>
+
 </odoo>

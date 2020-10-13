@@ -20,9 +20,9 @@ class Session(models.Model):
     start_date = fields.Date(string='Start Date', default=fields.Date.context_today)
     end_date = fields.Date(string='End Date', default=fields.Date.context_today)
     duration = fields.Float('Duration', default=1)  # need to do default one day
-    instructor_id = fields.Many2one('partner', string="Instructor")
+    instructor_id = fields.Many2one('res.partner', string="Instructor", domain="[('instructor', 'is', True)]")
     course_id = fields.Many2one('course', string="Course", required=True, ondelete='cascade')
-    attendee_ids = fields.Many2many('partner', 'partner_rel', 'instructor_id', string='Partner')
+    attendee_ids = fields.Many2many('res.partner', 'res_partner_rel', 'instructor_id', string='Partner')
     active = fields.Boolean('Active', default=True)
 
     seats = fields.Integer(string='Seats')
