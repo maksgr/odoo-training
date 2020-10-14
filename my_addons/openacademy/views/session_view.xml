@@ -23,6 +23,15 @@
         <field name="model">session</field>
         <field name="arch" type="xml">
             <form string="Session">
+                <header>
+                    <button name="button_draft" string="Reset to Draft" type="object"
+                            attrs="{'invisible' : [('state', '==', 'draft')]}"/>
+                    <button name="button_confirm" string="Confirm" type="object"
+                            attrs="{'invisible' : [('state', 'in', ('confirmed', 'done'))]}"/>
+                    <button name="button_done" string="Mark as Done" type="object"
+                            attrs="{'invisible' : [('state', 'in', ('done', 'draft'))]}"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
                 <sheet>
                     <widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
                     <field name="active" invisible="1"/>
@@ -31,15 +40,18 @@
                         <field name="start_date"/>
                         <field name="end_date"/>
                         <field name="duration"/> <!-- widget="float_time" -->
-                        <field name="instructor_id" domain="[('instructor','is',True)]"/>
+                        <field name="instructor_id" domain="[('instructor','=',True)]"/>
                         <field name="course_id"/>
                         <field name="attendee_ids" widget="many2many_tags"/>
-                        <field name="state" widget="statusbar"/>
 
                         <field name="seats"/>
                         <field name="taken_seats" widget="progressbar"/>
                     </group>
                 </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
             </form>
         </field>
     </record>
