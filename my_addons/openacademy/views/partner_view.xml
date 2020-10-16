@@ -1,16 +1,24 @@
 <?xml version="1.0"?>
 <odoo>
 
+
+
     <record id="view_partner_address_form_custom" model="ir.ui.view">
         <field name="name">res.partner.form.address.custom</field>
         <field name="model">res.partner</field>
-        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="inherit_id" ref="library.view_partner_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='vat']" position="after">
+            <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
+                <button class="_stat_button_attendee_count" name="show_attendee" type="object" icon="fa-users">
+                    <field string="Course" name="course_attendee_count" widget="statinfo"/>
+                </button>
+            </xpath>
+            <xpath expr="//field[@name='partner_type']" position="after">
                 <field name="instructor"/>
             </xpath>
-            <xpath expr="//field[@name='category_id']" position="after">
-                <field name="session_ids" widget="many2many"/>
+            <xpath expr="//field[@name='rental_ids']" position="after">
+                <separator string="Session"/>
+                <field name="session_ids" widget="many2many" col="4"/>
             </xpath>
         </field>
     </record>
