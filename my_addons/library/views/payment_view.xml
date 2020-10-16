@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_library_payment_tree" model="ir.ui.view">
+            <field name="name">library.payment.tree</field>
+            <field name="model">library.payment</field>
+            <field name="arch" type="xml">
+                <tree string="Payment">
+                    <field name="date"/>
+                    <field name="amount"/>
+                    <field name="customer_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_library_payment_form" model="ir.ui.view">
+            <field name="name">library.payment.form</field>
+            <field name="model">library.payment</field>
+            <field name="arch" type="xml">
+                <form string="Payment">
+                    <sheet>
+                        <field name="date"/>
+                        <field name="amount"/>
+                        <field name="customer_id"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="open_view_library_payment_list" model="ir.actions.act_window">
+            <field name="name">Payment</field>
+            <field name="res_model">library.payment</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="view_id" eval="False"/>
+<!--            <field name="search_view_id" ref="view_library_publisher_filter"/>-->
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Add a new payment
+                </p>
+            </field>
+        </record>
+
+        <menuitem
+            id="menu_payment_main"
+            name="Payment"
+            parent="menu_open_library_root"
+            groups="base.group_user"
+            sequence="15"/>
+
+            <menuitem
+                id="menu_view_payment"
+                name="Payment"
+                action="open_view_library_payment_list"
+                parent="menu_payment_main"
+                sequence="0"/>
+
+    </data>
+</odoo>

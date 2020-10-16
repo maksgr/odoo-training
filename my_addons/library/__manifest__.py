@@ -24,19 +24,21 @@
 
     # any module necessary for this one to work correctly
     'depends':
-        ['base'],
+        ['base', 'product', 'purchase'],
 
     # always loaded
     'data':
     [
         "security/ir.model.access.csv",
         "data/library_data.xml",
+        "data/ir_cron_data.xml",
         "views/library_view.xml",
-        "views/book_view.xml",
         "views/partner_view.xml",
         "views/rentals_view.xml",
-        "views/publisher_view.xml",
+        "views/product_view.xml",
         "views/copy_view.xml",
+        "views/price_view.xml",
+        "views/payment_view.xml",
     ],
     # only loaded in demonstration mode
     'demo': [],

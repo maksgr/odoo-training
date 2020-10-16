@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="product_normal_form_view" model="ir.ui.view">
+            <field name="name">product.form.custom</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <form position="replace">
+                    <sheet>
+                        <group col="10">
+                            <field name="name"/>
+                            <field name="isbn"/>
+                            <field name="edition_date"/>
+                            <field name="publisher_id"/>
+                            <field name="is_book"/>
+                        </group>
+                        <field name="author_ids" domain="[('partner_type', '=', 'author')]"/>
+                        <field name="rental_ids"/>
+                        <field name="copy_ids"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="product.product_normal_action_sell" model="ir.actions.act_window">
+            <field name="name">Product</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.product</field>
+            <field name="domain">[('is_book', '!=', False)]</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('product.product_product_tree_view')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('product.product_normal_form_view')})]"/>
+             <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Create a new product
+              </p>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

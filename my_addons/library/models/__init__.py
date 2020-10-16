@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from . import book
+from . import product
 from . import partner
 from . import rental
-from . import publisher
 from . import copy
+from . import price
+from . import payment

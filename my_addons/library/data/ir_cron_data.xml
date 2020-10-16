@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+    <record id="rental_cron_debtors" model="ir.cron">
+        <field name="name">Send email debtors</field>
+        <field name="model_id" ref="model_library_rental"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_check_date()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="doall" eval="True"/>
+    </record>
+</odoo>

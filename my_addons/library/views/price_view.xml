@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_library_price_tree" model="ir.ui.view">
+            <field name="name">library.price.tree</field>
+            <field name="model">library.price</field>
+            <field name="arch" type="xml">
+                <tree string="Price">
+                    <field name="name"/>
+                    <field name="duration"/>
+                    <field name="price"/>
+                    <field name="type"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_library_price_form" model="ir.ui.view">
+            <field name="name">library.price.form</field>
+            <field name="model">library.price</field>
+            <field name="arch" type="xml">
+                <form string="Price">
+                    <sheet>
+                        <group col="4">
+                            <field name="name"/>
+                            <field name="duration" attrs="{'invisible':[('type','=','one')]}"/>
+                            <field name="price"/>
+                            <field name="type"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="open_view_library_price_list" model="ir.actions.act_window">
+            <field name="name">Price</field>
+            <field name="res_model">library.price</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="view_id" eval="False"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Add a new price
+                </p>
+            </field>
+        </record>
+
+        <menuitem
+            id="menu_price_main"
+            name="Price"
+            parent="menu_open_library_root"
+            groups="base.group_user"
+            sequence="0"/>
+
+            <menuitem
+                id="menu_view_price"
+                name="Price"
+                action="open_view_library_price_list"
+                parent="menu_price_main"
+                sequence="0"/>
+
+    </data>
+</odoo>

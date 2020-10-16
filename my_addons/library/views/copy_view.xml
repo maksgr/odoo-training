@@ -19,10 +19,15 @@
             <field name="model">library.copy</field>
             <field name="arch" type="xml">
                 <form string="Copy">
+                    <header>
+                        <field name="book_state" widget="statusbar"/>
+                    </header>
                     <sheet>
                         <group col="4">
-                            <field name="book_id"/>
-                            <field name="reference"/>
+                            <group>
+                                <field name="book_id"/>
+                                <field name="reference"/>
+                            </group>
                             <field name="rental_ids"/>
                         </group>
                     </sheet>
@@ -37,7 +42,7 @@
             <field name="domain">[]</field>
             <field name="context">{}</field>
             <field name="view_id" eval="False"/>
-<!--            <field name="search_view_id" ref="view_library_publisher_filter"/>-->
+            <!--            <field name="search_view_id" ref="view_library_publisher_filter"/>-->
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">
                     Add a new copy
