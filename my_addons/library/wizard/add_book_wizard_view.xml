@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <act_window id="add_book_wizard_action"
+                name="Add Book"
+                binding_model="library.copy"
+                binding_views="list"
+                res_model="add.book.wizard"
+                view_mode="form" target="new"/>
+
+        <!-- wizard view -->
+        <record id="add_book_wizard_form" model="ir.ui.view">
+            <field name="name">add.book.form.wizard</field>
+            <field name="model">add.book.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Add Book">
+                    <sheet>
+                        <group>
+                            <field name="customer_id"/>
+                            <field name="return_date"/>
+                        </group>
+                        <group invisible="1">
+                            <field name="copy_ids"/>
+                            <field name="rental_id"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button string="Continue" name="continue_add_book" type="object" class="send_and_print btn-primary o_mail_send"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+</odoo>

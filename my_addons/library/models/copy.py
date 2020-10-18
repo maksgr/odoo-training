@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import fields, models
+from odoo import fields, models, api
 
 BOOK_STATE = (
     ('available', 'Available'),
@@ -23,3 +23,15 @@ class Copy(models.Model):
     rental_ids = fields.One2many('library.rental', 'copy_id', 'Rental')
     book_state = fields.Selection(selection=BOOK_STATE, string='Book State', default='available')
     active = fields.Boolean("Active", default=True)
+    readers_count = fields.Integer(string='Readers Count', compute='_compute_readers_count')
+
+    @api.depends('rental_ids.customer_id')
+    def _compute_readers_count(self):
+        for record in self:
+            record.readers_count = len(record.rental_ids.ids) if record.rental_ids.ids else None
+
+    def open_readers(self):
+        self.ensure_one()
+        action = self.env.ref('library.res_partner_action_tree').read()[0]
+        action['domain'] = [('rental_ids', 'in', self.rental_ids.ids)]
+        return action

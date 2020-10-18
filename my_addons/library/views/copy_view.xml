@@ -23,6 +23,11 @@
                         <field name="book_state" widget="statusbar"/>
                     </header>
                     <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button class="_readers_this_book" name="open_readers" type="object" icon="fa-users">
+                                <field string="Readers of this book" name="readers_count" widget="statinfo"/>
+                            </button>
+                        </div>
                         <group col="4">
                             <group>
                                 <field name="book_id"/>

@@ -28,6 +28,7 @@ class Session(models.Model):
 
     seats = fields.Integer(string='Seats')
     taken_seats = fields.Float(compute='_compute_taken_seats', string='Taken Seats')
+    attendees_count = fields.Integer(string='Attendees Count', compute='_compute_attendee_ids')
 
     @api.depends('attendee_ids', 'seats')
     def _compute_taken_seats(self) -> None:
@@ -100,3 +101,8 @@ class Session(models.Model):
         except Exception as e:
             _logger.critical(e)
             raise ValidationError("Sorry something went wrong.")
+
+    @api.depends('attendee_ids')
+    def _compute_attendee_ids(self) -> None:
+        for record in self:
+            record.attendees_count = len(record.attendee_ids.ids) if record.attendee_ids.ids else None

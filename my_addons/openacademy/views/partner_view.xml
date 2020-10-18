@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <odoo>
 
-
-
     <record id="view_partner_address_form_custom" model="ir.ui.view">
         <field name="name">res.partner.form.address.custom</field>
         <field name="model">res.partner</field>

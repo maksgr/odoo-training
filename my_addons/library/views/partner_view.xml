@@ -19,13 +19,16 @@
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
                 <sheet position="replace">
-                    <group col="10">
+                    <div class="oe_button_box" name="button_box">
+                    </div>
+                    <group col="6">
                         <field name="name"/>
                         <field name="email"/>
                         <field name="street"/>
                         <field name="amount_owd"/>
                         <field name="partner_type"/>
                     </group>
+                    <separator string="Rental"/>
                     <field name="rental_ids" attrs="{'invisible': [('partner_type', '=', 'author')]}"/>
                 </sheet>
             </field>
@@ -40,6 +43,13 @@
                     <field name="amount_owd" string="Amount owd" filter_domain="[('amount_owd', '=', self)]"/>
                 </xpath>
             </field>
+        </record>
+
+        <record id="res_partner_action_tree" model="ir.actions.act_window">
+            <field name="name">Partner</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree</field>
+            <field name="context">{}</field>
         </record>
 
     </data>

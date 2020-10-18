@@ -39,6 +39,8 @@
         "views/copy_view.xml",
         "views/price_view.xml",
         "views/payment_view.xml",
+
+        "wizard/add_book_wizard_view.xml",
     ],
     # only loaded in demonstration mode
     'demo': [],
